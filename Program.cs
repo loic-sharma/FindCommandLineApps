@@ -51,6 +51,7 @@ namespace FindCommandLineApps
 
             do
             {
+                // TODO: Don't hardcode the search endpoint
                 var url = $"https://azuresearch-usnc.nuget.org/query?packageType=Dotnettool&skip={skip}&take={take}";
             
                 using var response = await httpClient.GetAsync(url);
@@ -84,7 +85,6 @@ namespace FindCommandLineApps
             {
                 while (channel.TryRead(out var item))
                 {
-                    // TODO: Likely not seekable.
                     var packageId = item.PackageId;
                     var packageVersion = item.ParseVersion();
 
@@ -111,7 +111,6 @@ namespace FindCommandLineApps
                             return;
                         }
                     }
-
                 }
             }
         }
