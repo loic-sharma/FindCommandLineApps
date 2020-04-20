@@ -34,7 +34,7 @@ namespace FindCommandLineApps
             var producerTask = ProduceWorkAsync(serializer, channel.Writer);
             var workerTasks = Enumerable
                 .Range(0, 32)
-                .Select(x => ConsumeWork(client, serializer, channel.Reader));
+                .Select(x => ConsumeWorkAsync(client, serializer, channel.Reader));
 
             await Task.WhenAll(workerTasks.Append(producerTask));
 
@@ -74,7 +74,7 @@ namespace FindCommandLineApps
             channel.Complete();
         }
 
-        private static async Task ConsumeWork(
+        private static async Task ConsumeWorkAsync(
             NuGetClient client,
             JsonSerializer serializer,
             ChannelReader<SearchResult> channel)
