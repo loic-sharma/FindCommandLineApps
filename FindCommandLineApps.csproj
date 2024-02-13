@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="BaGet.Protocol" Version="0.3.0-preview3" />
-    <PackageReference Include="NuGet.Packaging" Version="5.5.1" />
+    <PackageReference Include="NuGet.Packaging" Version="5.11.6" />
     <PackageReference Include="System.Threading.Channels" Version="4.7.0" />
   </ItemGroup>
 
